@@ -1,0 +1,72 @@
+<!-- <h1>Create New Us</h1>
+
+<form action="<%= users_path %>" method="post" accept-charset="UTF-8">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+  <div>
+    <label for="user_username">Username:</label>
+    <input type="text" id="user_username" name="user[username]">
+  </div>
+
+  <div>
+    <label for="user_email">Email:</label>
+    <input type="email" id="user_email" name="user[email]">
+  </div>
+
+  <div>
+    <label for="user_password">Password:</label>
+    <input type="password" id="user_password" name="user[password]">
+  </div>
+
+  <div>
+    <input type="submit" value="Create User">
+  </div>
+</form>
+-->
+
+<!-- <h1>Create New User</h1>
+
+<%= form_with(url: users_path, method: :post) do |form| %>
+  <div>
+    <%= form.label(:username, "Username:") %>
+    <%= form.text_field(:username) %>
+  </div>
+
+  <div>
+    <%= form.label(:email, "Email:") %>
+    <%= form.email_field(:email) %>
+  </div>
+
+  <div>
+    <%= form.label(:password, "Password:") %>
+    <%= form.password_field(:password) %>
+  </div>
+
+  <div>
+    <%= form.submit("Create User") %>
+  </div>
+<% end %>
+-->
+
+<h1>Create New User</h1>
+
+<%= form_with(model: @user, url: users_path) do |form| %>
+  <div>
+    <%= form.label :username, "Username:"%>
+    <%= form.text_field :username,  placeholder: "Your user name here" %>
+  </div>
+
+  <div>
+    <%= form.label :email, "Email:" %>
+    <%= form.email_field :email, placeholder: "example@example.com" %>
+  </div>
+
+  <div>
+    <%= form.label :password, "Password:" %>
+    <%= form.password_field :password, value: "default_password" %>
+  </div>
+
+  <div>
+    <%= form.submit "Create User" %>
+  </div>
+<% end %>
